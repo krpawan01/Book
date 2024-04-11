@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 
 const BookDetails = () => {
     const { id } = useParams();
-    const { data } = useValue()
+    const { data, renderRating } = useValue()
     const book = data.find(book => book.id === parseInt(id));
     return (
 
@@ -26,8 +26,10 @@ const BookDetails = () => {
                     <h5>Published Date: {book.volumeInfo.publishedDate || "N/A"}</h5>
                     <h5>Page Count: {book.volumeInfo.pageCount || "N/A"}</h5>
                     <h5>Categories: {book.volumeInfo.categories ? book.volumeInfo.categories.join(', ') : "N/A"}</h5>
-                    <h5>Rating: {book.volumeInfo.averageRating || "N/A"}</h5>
                     <h5>Authors: {book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : "N/A"}</h5>
+                    <h5> <span className="rating">{book.volumeInfo.averageRating ? renderRating(Math.round(book.volumeInfo.averageRating)) : ""}</span>
+                        <span className='ratingUser'> {book.volumeInfo.ratingsCount ? `( ${book.volumeInfo.ratingsCount} )` : ""}</span>
+                    </h5>
 
                 </div>
             </div>

@@ -1,5 +1,4 @@
-// import { axios } from "axios";
-import axios from 'axios'; // corrected import
+import axios from 'axios'; 
 import { createContext, useContext, useEffect, useState } from "react";
 
 const bookContext = createContext();
@@ -32,14 +31,27 @@ const CostumBookContext = ({ children }) => {
         const searchQuery = e.target.value.toLowerCase();
         setQuery(searchQuery);
         const filteredData = data.filter((book) =>
-            book.volumeInfo.title.toLowerCase().includes(searchQuery)
+            (book.volumeInfo.authors && book.volumeInfo.authors.join(', ').toLowerCase().includes(searchQuery)) ||
+            (book.volumeInfo.categories && book.volumeInfo.categories.join(', ').toLowerCase().includes(e.target.value.toLowerCase()))
         );
         setFilterSearch(filteredData);
     };
 
+    const renderRating = (rating) => {
+        let stars = [];
+        for (let i = 0; i < 5; i++) {
+            if (i < rating) {
+                stars.push('★');
+            } else {
+                stars.push('☆');
+            }
+        }
+        return stars.join('');
+    };
+
     return (
         <>
-            <bookContext.Provider value={{ data, filterSearch, query , handleQuery}}>
+            <bookContext.Provider value={{ data, filterSearch, query, handleQuery, renderRating }}>
                 {children}
             </bookContext.Provider>
         </>

@@ -1,0 +1,28 @@
+@media (max-width: 1122px) {
+    .books {
+      gap: 1rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .boxContainer{
+      width: 80%;
+    }
+  }
+  @media (max-width: 786px) {
+    .books {
+      gap: 1rem;
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    .boxContainer{
+      width: 100%;
+    }
+  }
+  @media (max-width:555px){
+    .boxContainer{
+      width: auto;
+      height: auto;
+      border: none;
+    }
+  }
+  
