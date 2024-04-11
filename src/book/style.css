@@ -93,7 +93,7 @@ img {
   width: 60%;
 }
 
-/* book details  */
+/* book details page  */
 .detailsContainer {
   display: flex;
   flex-direction: column;
@@ -103,7 +103,7 @@ img {
 }
 .boxContainer {
   display: flex;
-  border: 2px solid;
+  border: 5px solid green;
   border-radius: 8px;
   gap: 2rem;
   width: 60%;

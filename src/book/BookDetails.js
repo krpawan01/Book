@@ -21,12 +21,12 @@ const BookDetails = () => {
                 </div>
                 <div className="book-details">
                     <h2>{book.volumeInfo.title}</h2>
-                    <h3>Subtitle: {book.volumeInfo.subtitle || "N/A"}</h3>
-                    <h5>Publisher: {book.volumeInfo.publisher || "N/A"}</h5>
-                    <h5>Published Date: {book.volumeInfo.publishedDate || "N/A"}</h5>
-                    <h5>Page Count: {book.volumeInfo.pageCount || "N/A"}</h5>
-                    <h5>Categories: {book.volumeInfo.categories ? book.volumeInfo.categories.join(', ') : "N/A"}</h5>
-                    <h5>Authors: {book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : "N/A"}</h5>
+                    <h3>Subtitle: {book.volumeInfo.subtitle || ""}</h3>
+                    <h5>Publisher: {book.volumeInfo.publisher || ""}</h5>
+                    <h5>Published Date: {book.volumeInfo.publishedDate || ""}</h5>
+                    <h5>Page Count: {book.volumeInfo.pageCount || ""}</h5>
+                    <h5>Categories: {book.volumeInfo.categories ? book.volumeInfo.categories.join(', ') : ""}</h5>
+                    <h5>Authors: {book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : ""}</h5>
                     <h5> <span className="rating">{book.volumeInfo.averageRating ? renderRating(Math.round(book.volumeInfo.averageRating)) : ""}</span>
                         <span className='ratingUser'> {book.volumeInfo.ratingsCount ? `( ${book.volumeInfo.ratingsCount} )` : ""}</span>
                     </h5>
